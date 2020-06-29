@@ -1,4 +1,7 @@
-$HEADER$namespace $NAMESPACE$
+namespace PaymentGateway.Messages.Common
 {
-  public class $CLASS$ {$END$}
+    public class Command: Message, ICommand
+    {
+        
+    }
 }

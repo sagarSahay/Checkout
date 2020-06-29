@@ -1,4 +1,9 @@
-$HEADER$namespace $NAMESPACE$
+namespace PaymentGateway.Messages.Common
 {
-  public class $CLASS$ {$END$}
+    using System;
+
+    public interface IMessage
+    {
+        Guid Id { get; }
+    }
 }

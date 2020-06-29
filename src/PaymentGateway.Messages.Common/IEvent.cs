@@ -1,6 +1,6 @@
 namespace PaymentGateway.Messages.Common
 {
-    public class IEvent
+    public interface IEvent : IMessage
     {
         
     }

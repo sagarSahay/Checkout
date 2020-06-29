@@ -1,4 +1,14 @@
-$HEADER$namespace $NAMESPACE$
+namespace PaymentGateway.WriteModel.API.Profiles
 {
-  public class $CLASS$ {$END$}
+    using AutoMapper;
+    using Commands;
+    using Models;
+
+    public class ProcessPaymentProfile : Profile
+    {
+        public ProcessPaymentProfile()
+        {
+            CreateMap<PaymentRequest, ProcessPayment>();
+        }
+    }
 }

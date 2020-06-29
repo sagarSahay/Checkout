@@ -1,7 +1,12 @@
 namespace PaymentGateway.WriteModel.Application
 {
-    public class LloydsBank
+    using System;
+
+    public class LloydsBank : IAcquiringBank
     {
-        
+        public (Guid, string) ProcessPayment(string cardNumber, string cvv, string expiryDate, string amount, string currency)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

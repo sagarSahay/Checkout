@@ -1,7 +1,9 @@
 namespace PaymentGateway.Messages.Common
 {
-    public class Message
+    using System;
+
+    public class Message :IMessage
     {
-        
+        public Guid Id { get; } = Guid.NewGuid();
     }
 }

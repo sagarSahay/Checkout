@@ -1,6 +1,6 @@
 namespace PaymentGateway.Messages.Common
 {
-    public class ICommand
+    public interface ICommand
     {
         
     }

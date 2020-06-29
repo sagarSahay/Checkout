@@ -1,4 +1,9 @@
-$HEADER$namespace $NAMESPACE$
+namespace PaymentGateway.WriteModel.API.Models
 {
-  public class $CLASS$ {$END$}
+    using System;
+
+    public class PaymentResponse
+    {
+        public Guid PaymentId { get; set; }
+    }
 }
