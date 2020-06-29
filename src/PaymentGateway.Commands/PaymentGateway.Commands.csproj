@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\PaymentGateway.Messages.Common\PaymentGateway.Messages.Common.csproj" />
+      <ProjectReference Include="..\PaymentGateway.Messages.Common\PaymentGateway.Messages.Common.csproj" />
     </ItemGroup>
 
 </Project>
