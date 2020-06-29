@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  api:
+    image: paymentgatewayapi:0.0.0
+    build:
+      context: src
+      args:
+        version: 0.0.0
+    depends_on:
+      - rabbitmq
+  rabbitmq:
+        image: rabbitmq:3-management-alpine
+        container_name: rabbitmq-checkout
+        ports:
+            - 5673:5672
+            - 15673:15672

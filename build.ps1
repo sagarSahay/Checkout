@@ -1,0 +1,1 @@
+docker-compose up --build --renew-anon-volumes --abort-on-container-exit

@@ -13,7 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Commands", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11EBD240-3428-4728-AD65-8CF99D5328E2}"
 	ProjectSection(SolutionItems) = preProject
-		setup\Dockerfile = setup\Dockerfile
+		docker-compose.yaml = docker-compose.yaml
+		src\Dockerfile = src\Dockerfile
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.WriteModel.API.Tests", "src\PaymentGateway.WriteModel.API.Tests\PaymentGateway.WriteModel.API.Tests.csproj", "{C4DB3ECC-C80C-4B04-94C3-F6BC1A56EE39}"
