@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Hosting.WindowsServices;
+using PaymentGateway.WriteModel.Application.Configuration;
 
 namespace PaymentGateway.WriteModel.Application
 {
@@ -12,77 +15,44 @@ namespace PaymentGateway.WriteModel.Application
     using TimeSpan = System.TimeSpan;
     using Uri = System.Uri;
 
+
     public class Program
     {
         public static async Task Main()
         {
-            var services = new ServiceCollection();
+            //var services = new ServiceCollection();
 
-            services.AddHttpClient();
+            //services.AddHttpClient();
 
-            services.AddScoped<AcquiringBankFactory>();
+            //services.AddScoped<AcquiringBankFactory>();
 
-            services.AddScoped<LloydsBank>()
-                .AddScoped<IAcquiringBank, LloydsBank>(s => s.GetService<LloydsBank>());
+            //services.AddScoped<LloydsBank>()
+            //    .AddScoped<IAcquiringBank, LloydsBank>(s => s.GetService<LloydsBank>());
 
-            services.AddScoped<BarclaysBank>()
-                .AddScoped<IAcquiringBank, BarclaysBank>(s => s.GetService<BarclaysBank>());
+            //services.AddScoped<BarclaysBank>()
+            //    .AddScoped<IAcquiringBank, BarclaysBank>(s => s.GetService<BarclaysBank>());
 
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json").Build();
-            
-            await ConfigureRabbitMq(config, services);
+            //var config = new ConfigurationBuilder()
+            //    .SetBasePath(Directory.GetCurrentDirectory())
+            //    .AddJsonFile("appsettings.json").Build();
+
+            //await ConfigureRabbitMq(config, services);
+
+            CreateHostBuilder().Build().Run();
         }
 
-        private static async Task ConfigureRabbitMq(IConfigurationRoot config, ServiceCollection services)
-        {
-            var rabbitHost = config["RabbitMqHost"];
-            var rabbitUser = config["RabbitMqUser"];
-            var rabbitPassword = config["RabbitMqPassword"];
-            var receiveQueue = config["ReceiveQueue"];
-            //services.AddSingleton(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
-            //{
-            //    cfg.Host(new Uri(rabbitHost), h =>
-            //    {
-            //        h.Username(rabbitUser);
-            //        h.Password(rabbitPassword);
-            //    });
-            //    cfg.ReceiveEndpoint(receiveQueue, e =>
-            //    {
-            //        e.Consumer<ProcessPaymentHandler>(provider);
-            //    });
-            //}));
-            //var serviceProvider = services.BuildServiceProvider();
-            //var busControl = serviceProvider.GetService<IBusControl>();
-            IPublishEndpoint publishEndpoint = null;
-            var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
-            {
-                cfg.Host(new Uri(rabbitHost), h =>
+        public static IHostBuilder CreateHostBuilder() =>
+            Host.CreateDefaultBuilder()
+                .UseWindowsService()
+                .ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    h.Username(rabbitUser);
-                    h.Password(rabbitPassword);
-                });
-                cfg.ReceiveEndpoint(receiveQueue, e =>
+                    config.AddConfiguration(new ConfigurationBuilder().AddJsonFile("appsettings.json").Build());
+                })
+                .ConfigureServices((hostContext, services) =>
                 {
-                    e.Consumer(()=> new ProcessPaymentHandler(publishEndpoint));
+                    services.RegisterConfigurationServices(hostContext);
+                    services.RegisterQueueServices(hostContext);
+                    services.AddHostedService<Worker>();
                 });
-            });
-            publishEndpoint = busControl;
-
-            var source = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-
-            await busControl.StartAsync(source.Token);
-            try
-            {
-                Console.WriteLine("Press enter to exit");
-
-                await Task.Run(() => Console.ReadLine());
-            }
-            finally
-            {
-                await busControl.StopAsync();
-            }
-        }
     }
 }
