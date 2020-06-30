@@ -32,5 +32,4 @@ EXPOSE 9012
 
 COPY --from=build-env /app/PaymentGateway.WriteModel.API/bin/Release/netcoreapp3.1/publish .
 
-CMD ["dotnet", "PaymentGateway.WriteModel.API.dll"]
-
+CMD ["dotnet","watch", "run", "--no-restore", "--urls", "https://0.0.0.0:5000", "PaymentGateway.WriteModel.API.dll"]

@@ -9,6 +9,7 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
         public Task Consume(ConsumeContext<ProcessPayment> context)
         {
             //var command = context.Message;
+            
             return Task.FromResult(0);
         }
     }

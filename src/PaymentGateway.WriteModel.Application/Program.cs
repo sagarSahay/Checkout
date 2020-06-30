@@ -1,19 +1,26 @@
-﻿using System;
-
-namespace PaymentGateway.WriteModel.Application
+﻿namespace PaymentGateway.WriteModel.Application
 {
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
     using MassTransit;
+    using Messages.CommandHandlers;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Console = System.Console;
+    using TimeSpan = System.TimeSpan;
+    using Uri = System.Uri;
 
     public class Program
     {
         public static async Task Main()
         {
-            await ConfigureRabbitMq();
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json").Build();
+            
+            await ConfigureRabbitMq(config);
+            
             var services = new ServiceCollection();
 
             services.AddScoped<AcquiringBankFactory>();
@@ -26,12 +33,8 @@ namespace PaymentGateway.WriteModel.Application
 
         }
 
-        private static async Task ConfigureRabbitMq()
+        private static async Task ConfigureRabbitMq(IConfigurationRoot config)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json").Build();
-
             var rabbitHost = config["RabbitMqHost"];
             var rabbitUser = config["RabbitMqUser"];
             var rabbitPassword = config["RabbitMqPassword"];
@@ -44,7 +47,10 @@ namespace PaymentGateway.WriteModel.Application
                     h.Username(rabbitUser);
                     h.Password(rabbitPassword);
                 });
-                //cfg.ReceiveEndpoint(receiveQueue, e => { e.Consumer<EventConsumer>(); });
+                cfg.ReceiveEndpoint(receiveQueue, e =>
+                {
+                    e.Consumer<ProcessPaymentHandler>();
+                });
             });
 
             var source = new CancellationTokenSource(TimeSpan.FromSeconds(10));
