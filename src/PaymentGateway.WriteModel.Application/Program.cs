@@ -1,4 +1,6 @@
-﻿namespace PaymentGateway.WriteModel.Application
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace PaymentGateway.WriteModel.Application
 {
     using System.IO;
     using System.Threading;
@@ -6,7 +8,6 @@
     using MassTransit;
     using Messages.CommandHandlers;
     using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
     using Console = System.Console;
     using TimeSpan = System.TimeSpan;
     using Uri = System.Uri;
@@ -15,31 +16,46 @@
     {
         public static async Task Main()
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json").Build();
-            
-            await ConfigureRabbitMq(config);
-            
             var services = new ServiceCollection();
+
+            services.AddHttpClient();
 
             services.AddScoped<AcquiringBankFactory>();
 
             services.AddScoped<LloydsBank>()
                 .AddScoped<IAcquiringBank, LloydsBank>(s => s.GetService<LloydsBank>());
-            
+
             services.AddScoped<BarclaysBank>()
                 .AddScoped<IAcquiringBank, BarclaysBank>(s => s.GetService<BarclaysBank>());
 
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json").Build();
+            
+            await ConfigureRabbitMq(config, services);
         }
 
-        private static async Task ConfigureRabbitMq(IConfigurationRoot config)
+        private static async Task ConfigureRabbitMq(IConfigurationRoot config, ServiceCollection services)
         {
             var rabbitHost = config["RabbitMqHost"];
             var rabbitUser = config["RabbitMqUser"];
             var rabbitPassword = config["RabbitMqPassword"];
             var receiveQueue = config["ReceiveQueue"];
-
+            //services.AddSingleton(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
+            //{
+            //    cfg.Host(new Uri(rabbitHost), h =>
+            //    {
+            //        h.Username(rabbitUser);
+            //        h.Password(rabbitPassword);
+            //    });
+            //    cfg.ReceiveEndpoint(receiveQueue, e =>
+            //    {
+            //        e.Consumer<ProcessPaymentHandler>(provider);
+            //    });
+            //}));
+            //var serviceProvider = services.BuildServiceProvider();
+            //var busControl = serviceProvider.GetService<IBusControl>();
+            IPublishEndpoint publishEndpoint = null;
             var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
                 cfg.Host(new Uri(rabbitHost), h =>
@@ -49,9 +65,10 @@
                 });
                 cfg.ReceiveEndpoint(receiveQueue, e =>
                 {
-                    e.Consumer<ProcessPaymentHandler>();
+                    e.Consumer(()=> new ProcessPaymentHandler(publishEndpoint));
                 });
             });
+            publishEndpoint = busControl;
 
             var source = new CancellationTokenSource(TimeSpan.FromSeconds(10));
 
