@@ -1,24 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Hosting.WindowsServices;
-using PaymentGateway.WriteModel.Application.Configuration;
-
-namespace PaymentGateway.WriteModel.Application
+﻿namespace PaymentGateway.WriteModel.Application
 {
-    using System.IO;
-    using System.Threading;
     using System.Threading.Tasks;
-    using MassTransit;
-    using Messages.CommandHandlers;
+    using Configuration;
     using Microsoft.Extensions.Configuration;
-    using Console = System.Console;
-    using TimeSpan = System.TimeSpan;
-    using Uri = System.Uri;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
 
 
     public class Program
     {
-        public static async Task Main()
+        public static void Main()
         {
             //var services = new ServiceCollection();
 

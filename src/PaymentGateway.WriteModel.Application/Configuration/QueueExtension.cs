@@ -1,13 +1,12 @@
-﻿using System;
-using MassTransit;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using PaymentGateway.WriteModel.Application.Messages.CommandHandlers;
-
-
-namespace PaymentGateway.WriteModel.Application.Configuration
+﻿namespace PaymentGateway.WriteModel.Application.Configuration
 {
+    using System;
+    using MassTransit;
+    using Messages.CommandHandlers;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+
     public static class QueueExtension
     {
         public static IServiceCollection RegisterQueueServices(this IServiceCollection services, HostBuilderContext context)
