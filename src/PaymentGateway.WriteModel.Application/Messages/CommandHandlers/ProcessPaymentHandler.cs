@@ -9,25 +9,49 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
 
     public class ProcessPaymentHandler : IConsumer<ProcessPayment>
     {
-        private readonly IServiceProvider _serviceProvider;
+        private readonly IServiceProvider serviceProvider;
 
         public ProcessPaymentHandler(IServiceProvider serviceProvider)
         {
-            _serviceProvider = serviceProvider;
+            this.serviceProvider = serviceProvider;
         }
 
         public async Task Consume(ConsumeContext<ProcessPayment> context)
         {
             var command = context.Message;
-            var publishEndpoint = _serviceProvider.GetService<IPublishEndpoint>();
-            var msg = new PaymentSuccessful()
-            {
-                CardNumber = command.CardNumber,
-                Amount = command.Amount,
-                Currency = command.Currency,
-            };
+            var publishEndpoint = serviceProvider.GetService<IPublishEndpoint>();
+            var bankFactory = serviceProvider.GetService<AcquiringBankFactory>();
+            var bank = bankFactory.GetBank(command.MerchantId);
 
-            await publishEndpoint.Publish(msg);
+            var (paymentResponseId, paymentMessage) = bank.ProcessPayment(
+                command.CardNumber,
+                command.Cvv, command.ExpiryDate,
+                command.Amount,
+                command.Currency);
+
+            if (paymentMessage == "SUCCESS")
+            {
+                var msg = new PaymentSuccessful()
+                {
+                    CardNumber = command.CardNumber,
+                    Amount = command.Amount,
+                    Currency = command.Currency,
+                };
+
+                await publishEndpoint.Publish(msg);
+            }
+            else
+            {
+                var msg = new PaymentUnsuccessful()
+                {
+                    CardNumber = command.CardNumber,
+                    Amount = command.Amount,
+                    Currency = command.Currency,
+                    ErrorMessage = paymentMessage
+                };
+
+                await publishEndpoint.Publish(msg);
+            }
         }
     }
 }

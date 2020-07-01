@@ -26,11 +26,6 @@
                     h.Username(queueSettings.Username);
                     h.Password(queueSettings.Password);
                 });
-
-                // cfg.ReceiveEndpoint(queueSettings.ReceiveQueueName, e =>
-                //{
-                //    e.Consumer<ProcessPaymentHandler>(provider);
-                //});
             }));
 
 

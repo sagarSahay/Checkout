@@ -1,9 +1,10 @@
+using PaymentGateway.Messages.Common;
+
 namespace PaymentGateway.Events.v1
 {
     using System;
-    using System.Globalization;
 
-    public class PaymentUnsuccessful
+    public class PaymentUnsuccessful : IEvent
     {
         public Guid Id => Guid.NewGuid();
         public string CardNumber { get; set; }
