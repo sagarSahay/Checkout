@@ -20,7 +20,7 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
         {
             var command = context.Message;
             var publishEndpoint = serviceProvider.GetService<IPublishEndpoint>();
-            var bankFactory = serviceProvider.GetService<AcquiringBankFactory>();
+            var bankFactory = serviceProvider.GetService<IBankFactory>();
             var bank = bankFactory.GetBank(command.MerchantId);
 
             var (paymentResponseId, paymentMessage) = bank.ProcessPayment(

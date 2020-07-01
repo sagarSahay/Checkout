@@ -1,33 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using MassTransit;
-using Microsoft.Extensions.DependencyInjection;
-using Moq;
-using PaymentGateway.Commands;
-using PaymentGateway.Events.v1;
-using PaymentGateway.Messages.Common;
-using PaymentGateway.WriteModel.Application.Messages.CommandHandlers;
-using Xunit;
-
-namespace PaymentGateway.WriteModel.Application.Tests
+﻿namespace PaymentGateway.WriteModel.Application.Tests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Commands;
+    using Events.v1;
+    using FluentAssertions;
+    using MassTransit;
+    using Messages.CommandHandlers;
+    using Microsoft.Extensions.DependencyInjection;
+    using Moq;
+    using PaymentGateway.Messages.Common;
+    using Xunit;
+
     public class ProcessPaymentHandlerTests
     {
-        //private ProcessPaymentHandler SUT { get; set; }
-        //private Mock<IAcquiringBank> bank { get; set; }
-        //private Mock<IServiceProvider> serviceProvider;
-
-        //[Fact]
-        //public async Task ProcessPayment_WhenPaymentIsSuccessful_SendsPaymentSuccessfulMessage()
-        //{
-        //    // Arrange
-        //    bank = new Mock<IAcquiringBank>();
-        //    bank.Setup(x=> x.ProcessPayment(It.IsAny<Guid>(),))
-
-        //}
-
         private class Arrangements
         {
             private IAcquiringBank bank { get; }
@@ -36,7 +25,7 @@ namespace PaymentGateway.WriteModel.Application.Tests
             public ProcessPayment Command { get; }
 
             public IPublishEndpoint PublishEndpoint { get; }
-            public ConsumeContext ConsumeContext { get; }
+            public ConsumeContext<ProcessPayment> ConsumeContext { get; }
 
             public List<IEvent> FiredEvents { get; }
 
@@ -58,8 +47,9 @@ namespace PaymentGateway.WriteModel.Application.Tests
         private class ArrangementsBuilder
         {
             private Mock<IAcquiringBank> acquiringBankMock;
+            private Mock<IBankFactory> bankFactoryMock;
             private ProcessPayment cmd;
-            private Mock<IServiceProvider> serviceProviderMock;
+            IServiceProvider serviceProvider;
             private Mock<ConsumeContext<ProcessPayment>> consumeContextMock;
             private Mock<IPublishEndpoint> publishEndpointMock;
             private List<IEvent> firedEvents = new List<IEvent>();
@@ -68,17 +58,23 @@ namespace PaymentGateway.WriteModel.Application.Tests
             {
                 cmd = InitialiseAProcessPaymentCommand();
                 acquiringBankMock = new Mock<IAcquiringBank>();
+                bankFactoryMock = new Mock<IBankFactory>();
                 acquiringBankMock.Setup(x => x.ProcessPayment(cmd.CardNumber,
                 cmd.Cvv,cmd.ExpiryDate,cmd.Amount,cmd.Currency)).Returns((Guid.NewGuid(), "SUCCESS"));
 
+                bankFactoryMock.Setup(x => x.GetBank(cmd.MerchantId)).Returns(acquiringBankMock.Object);
                 SetupServiceProviderAndResolvePublishEndpoint(true);
                 return this;
             }
             public ArrangementsBuilder WithACommandWhichResultsInFailure()
             {
                 cmd = InitialiseAProcessPaymentCommand();
+                acquiringBankMock = new Mock<IAcquiringBank>();
+                bankFactoryMock = new Mock<IBankFactory>();
                 acquiringBankMock.Setup(x => x.ProcessPayment(cmd.CardNumber,
-                    cmd.Cvv, cmd.ExpiryDate, cmd.Amount, cmd.Currency)).Returns((Guid.NewGuid(), "FAILURE"));
+                    cmd.Cvv,cmd.ExpiryDate,cmd.Amount,cmd.Currency)).Returns((Guid.NewGuid(), "FAILURE"));
+
+                bankFactoryMock.Setup(x => x.GetBank(cmd.MerchantId)).Returns(acquiringBankMock.Object);
                 SetupServiceProviderAndResolvePublishEndpoint(false);
                 return this;
             }
@@ -89,17 +85,17 @@ namespace PaymentGateway.WriteModel.Application.Tests
                 if (withSuccess)
                 {
                     publishEndpointMock.Setup(x => x.Publish(It.IsAny<IEvent>(), new CancellationToken()))
-                        .Callback<PaymentSuccessful>(r => firedEvents.Add(r));
+                        .Callback<IEvent, CancellationToken>((r,c) => firedEvents.Add(r));
                 }
                 else
                 {
                     publishEndpointMock.Setup(x => x.Publish(It.IsAny<IEvent>(), new CancellationToken()))
-                        .Callback<PaymentUnsuccessful>(r => firedEvents.Add(r));
+                        .Callback<IEvent, CancellationToken>((r,c) => firedEvents.Add(r));
                 }
                 
                 var serviceCollection = new ServiceCollection();
                 serviceCollection.AddScoped<IPublishEndpoint>(provider => publishEndpointMock.Object);
-                serviceCollection.AddScoped<AcquiringBankFactory>();
+                serviceCollection.AddScoped<IBankFactory>(provider => bankFactoryMock.Object);
                 serviceProvider = serviceCollection.BuildServiceProvider();
             }
             private ProcessPayment InitialiseAProcessPaymentCommand()
@@ -120,12 +116,52 @@ namespace PaymentGateway.WriteModel.Application.Tests
                 return msg;
             }
 
-            //public Arrangements Build()
-            //{
-            //    serviceProvider.Setup(x=> x.GetService<IPublishEndpoint>()).Returns()
-            //}
+            public Arrangements Build()
+            {
+               return new Arrangements(acquiringBankMock.Object, 
+                   serviceProvider, 
+                   publishEndpointMock.Object, 
+                   consumeContextMock.Object,
+                   firedEvents);
+            }
+        }
 
+        [Fact]
+        public async Task ProcessPayment_WhenPaymentIsSuccessful_SendsPaymentSuccessfulMessage()
+        {
+            // Arrange
+            var arrangements = new ArrangementsBuilder()
+                .WithACommandWhichResultsInSuccess()
+                .Build();
+            
+            // Act
+            await arrangements.SUT.Consume(arrangements.ConsumeContext);
+            
+            // Assert
+            arrangements.FiredEvents.Count.Should().Be(1);
 
+            var evt = arrangements.FiredEvents.FirstOrDefault();
+
+            evt.Should().BeOfType<PaymentSuccessful>();
+        }
+        
+        [Fact]
+        public async Task ProcessPayment_WhenPaymentIsUnsuccessful_SendsPaymentUnsuccessfulMessage()
+        {
+            // Arrange
+            var arrangements = new ArrangementsBuilder()
+                .WithACommandWhichResultsInFailure()
+                .Build();
+            
+            // Act
+            await arrangements.SUT.Consume(arrangements.ConsumeContext);
+            
+            // Assert
+            arrangements.FiredEvents.Count.Should().Be(1);
+
+            var evt = arrangements.FiredEvents.FirstOrDefault();
+
+            evt.Should().BeOfType<PaymentUnsuccessful>();
         }
 
     }

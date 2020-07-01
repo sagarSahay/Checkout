@@ -20,7 +20,7 @@ namespace PaymentGateway.WriteModel.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("http://localhost:9012");
+                    //webBuilder.UseUrls("http://localhost:9012");
                     webBuilder.UseStartup<Startup>();
                 });
     }

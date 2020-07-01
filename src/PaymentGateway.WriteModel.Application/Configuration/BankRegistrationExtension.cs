@@ -1,21 +1,14 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-namespace PaymentGateway.WriteModel.Application.Configuration
+﻿namespace PaymentGateway.WriteModel.Application.Configuration
 {
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+
     public static class BankRegistrationExtension
     {
         public static IServiceCollection RegisterAcquiringBanks(this IServiceCollection services,
             HostBuilderContext context)
         {
-            services.AddScoped<AcquiringBankFactory>();
-
-            services.AddScoped<LloydsBank>()
-                .AddScoped<IAcquiringBank, LloydsBank>(s => s.GetService<LloydsBank>());
-
-            services.AddScoped<BarclaysBank>()
-                .AddScoped<IAcquiringBank, BarclaysBank>(s => s.GetService<BarclaysBank>());
-
+            services.AddScoped<IBankFactory, AcquiringBankFactory>();
             return services;
         }
     }

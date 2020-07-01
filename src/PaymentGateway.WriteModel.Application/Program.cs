@@ -23,6 +23,7 @@
                 {
                     services.RegisterConfigurationServices(hostContext);
                     services.RegisterQueueServices(hostContext);
+                    //services.AddScoped<IBankFactory>();
                     services.RegisterAcquiringBanks(hostContext);
                     services.AddHostedService<Worker>();
                 });

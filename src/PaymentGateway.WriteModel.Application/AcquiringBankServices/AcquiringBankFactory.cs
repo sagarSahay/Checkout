@@ -2,22 +2,16 @@ namespace PaymentGateway.WriteModel.Application
 {
     using System;
 
-    public class AcquiringBankFactory
+    public class AcquiringBankFactory : IBankFactory
     {
-        private readonly IServiceProvider serviceProvider;
-
-        public AcquiringBankFactory(IServiceProvider serviceProvider)
-        {
-            this.serviceProvider = serviceProvider;
-        }
 
         public IAcquiringBank GetBank(string merchantId)
         {
             if (merchantId == "merchant1")
             {
-                return (IAcquiringBank) serviceProvider.GetService(typeof(LloydsBank));
+                return new LloydsBank();
             }
-            return  (IAcquiringBank) serviceProvider.GetService(typeof(BarclaysBank));
+            return  new BarclaysBank();
         }
     }
 }
