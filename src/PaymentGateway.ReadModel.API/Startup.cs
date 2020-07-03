@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 
 namespace PaymentGateway.ReadModel.API
 {
+    using Denormalizer.PaymentRepository;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -26,6 +28,7 @@ namespace PaymentGateway.ReadModel.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IPaymentQueryRepository, PaymentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
