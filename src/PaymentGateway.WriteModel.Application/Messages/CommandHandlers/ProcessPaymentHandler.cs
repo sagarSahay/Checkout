@@ -23,19 +23,23 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
             var bankFactory = serviceProvider.GetService<IBankFactory>();
             var bank = bankFactory.GetBank(command.MerchantId);
 
-            var (paymentResponseId, paymentMessage) = bank.ProcessPayment(
-                command.CardNumber,
-                command.Cvv, command.ExpiryDate,
-                command.Amount,
-                command.Currency);
+            var (paymentResponseId, paymentMessage) = (Guid.NewGuid(), "SUCCESS");
+            // var (paymentResponseId, paymentMessage) = bank.ProcessPayment(
+            //     command.CardNumber,
+            //     command.Cvv, command.ExpiryDate,
+            //     command.Amount,
+            //     command.Currency);
 
             if (paymentMessage == "SUCCESS")
             {
                 var msg = new PaymentSuccessful()
                 {
-                    CardNumber = command.CardNumber,
+                    CardNumber = TrimCardNumber(command.CardNumber),
                     Amount = command.Amount,
                     Currency = command.Currency,
+                    PaymentId = command.PaymentId,
+                    PaymentResponseId = paymentResponseId.ToString(),
+                    PaymentResponseStatus = paymentMessage
                 };
 
                 await publishEndpoint.Publish(msg);
@@ -52,6 +56,11 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
 
                 await publishEndpoint.Publish(msg);
             }
+        }
+
+        private string TrimCardNumber(string cardNumber)
+        {
+            return cardNumber.Substring(cardNumber.Length - 4);
         }
     }
 }

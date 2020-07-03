@@ -1,6 +1,5 @@
 namespace PaymentGateway.WriteModel.API.Tests
 {
-    using System;
     using FluentValidation.TestHelper;
     using Validators;
     using Xunit;
