@@ -1,17 +1,24 @@
 version: "3"
 
 services:
-  api:
-    image: paymentgatewayapi:0.0.0
-    build:
-      context: src
-      args:
-        version: 0.0.0
-    depends_on:
-      - rabbitmq
   rabbitmq:
-        image: rabbitmq:3-management-alpine
+        image: rabbitmq:3-management
         container_name: rabbitmq-checkout
         ports:
-            - 5673:5672
-            - 15673:15672
+            - 15672:15672
+            - 5672:5672
+            - 5671:5671
+            - 4369:4369
+  database:
+        image: mongo
+        container_name: checkout-mongo
+        environment:
+            - MONGO_INITDB_DATABASE=checkout-local
+        ports:
+            - 27017:27017
+            - 27019:27019
+  write-api:
+        context:.
+        dockerfile: /src/PaymentGateway.WriteModel.API/Dockerfile
+        ports:
+            - 8080:5009

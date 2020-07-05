@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  paymentgateway.writemodel.api:
-    image: paymentgatewaywritemodel
-    build:
-      context: .
-      dockerfile: src/PaymentGateway.WriteModel.API/Dockerfile
