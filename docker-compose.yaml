@@ -18,7 +18,16 @@ services:
             - 27017:27017
             - 27019:27019
   write-api:
-        context:.
-        dockerfile: /src/PaymentGateway.WriteModel.API/Dockerfile
+        build: 
+          context: ./src/
+          dockerfile: $PWD/src/PaymentGateway.WriteModel.API/Dockerfile
+        depends_on:
+          - rabbitmq
         ports:
-            - 8080:5009
+            - 5009:80
+  acquiring-bank:
+    build:
+      context: ./src/
+      dockerfile: $PWD/src/AcquiringBank.API/Dockerfile
+    ports:
+      - 6002:80
