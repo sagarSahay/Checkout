@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using AcquiringBankServices;
     using Commands;
     using Events.v1;
     using FluentAssertions;
@@ -60,7 +61,7 @@
                 acquiringBankMock = new Mock<IAcquiringBank>();
                 bankFactoryMock = new Mock<IBankFactory>();
                 acquiringBankMock.Setup(x => x.ProcessPayment(cmd.CardNumber,
-                cmd.Cvv,cmd.ExpiryDate,cmd.Amount,cmd.Currency)).Returns((Guid.NewGuid(), "SUCCESS"));
+                cmd.Cvv,cmd.ExpiryDate,cmd.Amount,cmd.Currency, cmd.MerchantId)).Returns((Guid.NewGuid(), "SUCCESS"));
 
                 bankFactoryMock.Setup(x => x.GetBank(cmd.MerchantId)).Returns(acquiringBankMock.Object);
                 SetupServiceProviderAndResolvePublishEndpoint(true);
@@ -72,7 +73,7 @@
                 acquiringBankMock = new Mock<IAcquiringBank>();
                 bankFactoryMock = new Mock<IBankFactory>();
                 acquiringBankMock.Setup(x => x.ProcessPayment(cmd.CardNumber,
-                    cmd.Cvv,cmd.ExpiryDate,cmd.Amount,cmd.Currency)).Returns((Guid.NewGuid(), "FAILURE"));
+                    cmd.Cvv,cmd.ExpiryDate,cmd.Amount,cmd.Currency, cmd.MerchantId)).Returns((Guid.NewGuid(), "FAILURE"));
 
                 bankFactoryMock.Setup(x => x.GetBank(cmd.MerchantId)).Returns(acquiringBankMock.Object);
                 SetupServiceProviderAndResolvePublishEndpoint(false);

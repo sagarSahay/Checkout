@@ -23,12 +23,13 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
             var bankFactory = serviceProvider.GetService<IBankFactory>();
             var bank = bankFactory.GetBank(command.MerchantId);
 
-            var (paymentResponseId, paymentMessage) = (Guid.NewGuid(), "SUCCESS");
-            // var (paymentResponseId, paymentMessage) = bank.ProcessPayment(
-            //     command.CardNumber,
-            //     command.Cvv, command.ExpiryDate,
-            //     command.Amount,
-            //     command.Currency);
+            //var (paymentResponseId, paymentMessage) = (Guid.NewGuid(), "SUCCESS");
+            var (paymentResponseId, paymentMessage) = bank.ProcessPayment(
+                command.CardNumber,
+                command.Cvv, command.ExpiryDate,
+                command.Amount,
+                command.Currency,
+                command.MerchantId);
 
             if (paymentMessage == "SUCCESS")
             {
@@ -39,7 +40,8 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
                     Currency = command.Currency,
                     PaymentId = command.PaymentId,
                     PaymentResponseId = paymentResponseId.ToString(),
-                    PaymentResponseStatus = paymentMessage
+                    PaymentResponseStatus = paymentMessage,
+                    OrderId = command.OrderId
                 };
 
                 await publishEndpoint.Publish(msg);
@@ -51,7 +53,8 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
                     CardNumber = command.CardNumber,
                     Amount = command.Amount,
                     Currency = command.Currency,
-                    ErrorMessage = paymentMessage
+                    ErrorMessage = paymentMessage,
+                    OrderId = command.OrderId,
                 };
 
                 await publishEndpoint.Publish(msg);

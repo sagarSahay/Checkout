@@ -2,7 +2,7 @@ namespace PaymentGateway.ReadModel.Denormalizer.PaymentRepository
 {
     using DbRepositoryContracts;
 
-    internal class PaymentRepository : CommonVMRepo<PaymentVM>,
+    public class PaymentRepository : CommonVMRepo<PaymentVM>,
         IPaymentQueryRepository
     {
         public PaymentRepository(IDocumentStore db)

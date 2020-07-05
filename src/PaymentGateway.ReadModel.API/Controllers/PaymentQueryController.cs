@@ -10,7 +10,8 @@ namespace PaymentGateway.ReadModel.API.Controllers
     {
         private readonly IPaymentQueryRepository paymentQueryRepository;
         
-        public PaymentQueryController(IServiceProvider serviceProvider, IPaymentQueryRepository paymentQueryRepository) : base(serviceProvider)
+        public PaymentQueryController(IServiceProvider serviceProvider, 
+            IPaymentQueryRepository paymentQueryRepository) : base(serviceProvider)
         {
             this.paymentQueryRepository = paymentQueryRepository;
         }
