@@ -1,7 +1,6 @@
 namespace PaymentGateway.ReadModel.Denormalizer.Configuration
 {
     using DbRepositoryContracts;
-    using Events.v1;
     using Handlers;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;

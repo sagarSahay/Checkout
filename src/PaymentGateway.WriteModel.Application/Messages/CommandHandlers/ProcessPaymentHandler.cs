@@ -1,9 +1,10 @@
+using PaymentGateway.Events.v1;
+
 namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
 {
     using System;
     using System.Threading.Tasks;
     using Commands;
-    using Events.v1;
     using MassTransit;
     using Microsoft.Extensions.DependencyInjection;
 

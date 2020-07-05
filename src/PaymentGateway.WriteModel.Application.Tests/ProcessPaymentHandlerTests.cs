@@ -1,4 +1,6 @@
-﻿namespace PaymentGateway.WriteModel.Application.Tests
+﻿using PaymentGateway.Events.v1;
+
+namespace PaymentGateway.WriteModel.Application.Tests
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +9,6 @@
     using System.Threading.Tasks;
     using AcquiringBankServices;
     using Commands;
-    using Events.v1;
     using FluentAssertions;
     using MassTransit;
     using Messages.CommandHandlers;

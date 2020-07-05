@@ -18,14 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\PaymentGateway.Events\PaymentGateway.Events.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="appsettings.json" />
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PaymentGateway.Events\PaymentGateway.Events.csproj" />
   </ItemGroup>
 
 </Project>

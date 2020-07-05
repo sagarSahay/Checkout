@@ -1,9 +1,10 @@
+using PaymentGateway.Events.v1;
+
 namespace PaymentGateway.ReadModel.Denormalizer.Handlers
 {
     using System.Threading.Tasks;
     using DbRepositoryContracts;
     using DocumentContracts;
-    using Events.v1;
     using MassTransit;
     using PaymentRepository;
 

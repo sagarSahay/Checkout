@@ -1,7 +1,6 @@
 namespace PaymentGateway.ReadModel.Denormalizer.Configuration
 {
     using System;
-    using Events.v1;
     using Handlers;
     using MassTransit;
     using Microsoft.Extensions.Configuration;
