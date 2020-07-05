@@ -1,22 +1,14 @@
-FROM microsoft/aspnetcore AS base
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 WORKDIR /app
-EXPOSE 80
+EXPOSE 5009
+ENV ASPNETCORE_URLS=http://*:5009
 
-FROM microsoft/aspnetcore-build AS build
-WORKDIR /src
-COPY CheckoutPaymentGateway.sln ./
-COPY src/PaymentGateway.WriteModel.API/PaymentGateway.WriteModel.API.csproj src/PaymentGateway.WriteModel.API/
-COPY src/PaymentGateway.Commands/PaymentGateway.Commands.csproj src/PaymentGateway.Commands/
-COPY src/PaymentGateway.Messages.Common/PaymentGateway.Messages.Common.csproj src/PaymentGateway.Messages.Common/
-RUN dotnet restore -nowarn:msb3202,nu1503
-COPY . .
-WORKDIR /src/src/PaymentGateway.WriteModel.API
-RUN dotnet build -c Release -o /app
+COPY . ./
+RUN dotnet publish PaymentGateway.WriteModel.API/PaymentGateway.WriteModel.API.csproj -c Release -o out
 
-FROM build AS publish
-RUN dotnet publish -c Release -o /app
-
-FROM base AS final
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
-COPY --from=publish /app .
+COPY --from=build-env /app/out .
+
 ENTRYPOINT ["dotnet", "PaymentGateway.WriteModel.API.dll"]

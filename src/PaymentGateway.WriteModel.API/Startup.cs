@@ -10,7 +10,10 @@ namespace PaymentGateway.WriteModel.API
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.OpenApi.Models;
     using Models;
+    using Serilog;
     using Validators;
 
     public class Startup
@@ -29,15 +32,33 @@ namespace PaymentGateway.WriteModel.API
             
             services.AddControllers().AddFluentValidation();
             services.AddTransient<IValidator<PaymentRequest>, PaymentRequestValidator>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PaaymentGateway.WriteModel.API", Version = "v1" });
+            });
             
-            ConfigureRabbit(services);
+            services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+            ConfigureRabbitAndLogger(services);
         }
 
-        private static void ConfigureRabbit(IServiceCollection services)
+        private static void ConfigureRabbitAndLogger(IServiceCollection services)
         {
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json").Build();
+            
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(config)
+                .CreateLogger();
+
+            services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog());
+
+            Log.Information("WebApi Starting...");
 
             var rabbitHost = config["RabbitMqHost"];
             var rabbitUser = config["RabbitMqUser"];
@@ -64,9 +85,17 @@ namespace PaymentGateway.WriteModel.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)
         {
             app.UseHttpsRedirection();
+            loggerFactory.AddSerilog();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "PaymentGateway.WriteModel.API V1");
+                //c.RoutePrefix = string.Empty;
+            });
+
 
             app.UseRouting();
 

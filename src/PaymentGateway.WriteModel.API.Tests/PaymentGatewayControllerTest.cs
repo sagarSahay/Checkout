@@ -11,6 +11,7 @@ namespace PaymentGateway.WriteModel.API.Tests
     using MassTransit;
     using Messages.Common;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Models;
     using Moq;
     using Profiles;
@@ -32,7 +33,8 @@ namespace PaymentGateway.WriteModel.API.Tests
         {
             // Arrange 
             var sendEndPoint = new Mock<ISendEndpoint>();
-            var sut = new PaymentGatewayController(sendEndPoint.Object, mapper);
+            var logger = new Mock<ILogger<PaymentGatewayController>>();
+            var sut = new PaymentGatewayController(sendEndPoint.Object, mapper, logger.Object);
             sut.ModelState.AddModelError("CardNumber", "Required");
             var input = new PaymentRequest()
             {
@@ -56,7 +58,8 @@ namespace PaymentGateway.WriteModel.API.Tests
         {
             // Arrange 
             var sendEndPoint = new Mock<ISendEndpoint>();
-            var sut = new PaymentGatewayController(sendEndPoint.Object, mapper);
+            var logger = new Mock<ILogger<PaymentGatewayController>>();
+            var sut = new PaymentGatewayController(sendEndPoint.Object, mapper, logger.Object);
             sut.ModelState.AddModelError("CardNumber", "Required");
             var input = new PaymentRequest()
             {
@@ -79,7 +82,8 @@ namespace PaymentGateway.WriteModel.API.Tests
         {
             // Arrange 
             var sendEndPoint = new Mock<ISendEndpoint>();
-            var sut = new PaymentGatewayController(sendEndPoint.Object, mapper);
+            var logger = new Mock<ILogger<PaymentGatewayController>>();
+            var sut = new PaymentGatewayController(sendEndPoint.Object, mapper, logger.Object);
             var input = new PaymentRequest()
             {
                 CardNumber = "1234-1234-1234-1234",
@@ -105,7 +109,8 @@ namespace PaymentGateway.WriteModel.API.Tests
             var sendEndPoint = new Mock<ISendEndpoint>();
             sendEndPoint.Setup(x => x.Send(It.IsAny<ProcessPayment>(), new CancellationToken()))
                 .Callback<ProcessPayment, CancellationToken>((c,ct) => commandList.Add(c));
-            var sut = new PaymentGatewayController(sendEndPoint.Object, mapper);
+            var logger = new Mock<ILogger<PaymentGatewayController>>();
+            var sut = new PaymentGatewayController(sendEndPoint.Object, mapper, logger.Object);
             var input = new PaymentRequest()
             {
                 CardNumber = "1234-1234-1234-1234",

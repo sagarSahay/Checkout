@@ -19,11 +19,11 @@
     },
     "PaymentGateway.WriteModel.API": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "paymentgateway/hello",
       "applicationUrl": "https://localhost:5009;http://localhost:5010",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development;Production"
       }
     }
   }
