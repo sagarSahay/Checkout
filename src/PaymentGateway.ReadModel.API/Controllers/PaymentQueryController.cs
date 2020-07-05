@@ -5,7 +5,7 @@ namespace PaymentGateway.ReadModel.API.Controllers
     using Denormalizer.PaymentRepository;
     using Microsoft.AspNetCore.Mvc;
 
-    [Route("api")]
+    [Route("api/query")]
     public class PaymentQueryController : BaseController
     {
         private readonly IPaymentQueryRepository paymentQueryRepository;
@@ -16,7 +16,7 @@ namespace PaymentGateway.ReadModel.API.Controllers
             this.paymentQueryRepository = paymentQueryRepository;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("/payment-info/{id}")]
         public async Task<IActionResult> Get(string id)
         {
             var paymentObj = await paymentQueryRepository.GetById(id);

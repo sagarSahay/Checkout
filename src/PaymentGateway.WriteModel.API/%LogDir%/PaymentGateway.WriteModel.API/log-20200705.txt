@@ -1,0 +1,318 @@
+2020-07-05 15:47:41.574 +01:00 [INF] WebApi Starting...
+2020-07-05 15:47:43.311 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 15:47:43.316 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 15:47:43.320 +01:00 [INF] Hosting environment: Development
+2020-07-05 15:47:43.324 +01:00 [INF] Hosting environment: Development
+2020-07-05 15:47:43.327 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 15:47:43.331 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 15:47:43.352 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/paymentgateway  
+2020-07-05 15:47:43.359 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/paymentgateway  
+2020-07-05 15:47:43.369 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 15:47:43.371 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 15:47:43.446 +01:00 [INF] Request finished in 98.775ms 404 
+2020-07-05 15:47:43.448 +01:00 [INF] Request finished in 98.775ms 404 
+2020-07-05 15:54:18.355 +01:00 [INF] WebApi Starting...
+2020-07-05 15:54:18.828 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 15:54:18.832 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 15:54:18.834 +01:00 [INF] Hosting environment: Development
+2020-07-05 15:54:18.837 +01:00 [INF] Hosting environment: Development
+2020-07-05 15:54:18.839 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 15:54:18.840 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 15:54:18.858 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/paymentgateway  
+2020-07-05 15:54:18.863 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/paymentgateway  
+2020-07-05 15:54:18.870 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 15:54:18.871 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 15:54:18.932 +01:00 [INF] Request finished in 76.4809ms 404 
+2020-07-05 15:54:18.933 +01:00 [INF] Request finished in 76.4809ms 404 
+2020-07-05 15:54:48.798 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/paymentgateway/swagger  
+2020-07-05 15:54:48.801 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/paymentgateway/swagger  
+2020-07-05 15:54:48.820 +01:00 [INF] Request finished in 21.6347ms 404 
+2020-07-05 15:54:48.822 +01:00 [INF] Request finished in 21.6347ms 404 
+2020-07-05 15:54:53.866 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger  
+2020-07-05 15:54:53.869 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger  
+2020-07-05 15:54:53.876 +01:00 [INF] Request finished in 9.502ms 301 
+2020-07-05 15:54:53.878 +01:00 [INF] Request finished in 9.502ms 301 
+2020-07-05 15:54:53.883 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/index.html  
+2020-07-05 15:54:53.886 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/index.html  
+2020-07-05 15:54:53.920 +01:00 [INF] Request finished in 37.5493ms 200 text/html;charset=utf-8
+2020-07-05 15:54:53.922 +01:00 [INF] Request finished in 37.5493ms 200 text/html;charset=utf-8
+2020-07-05 15:54:53.935 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/swagger-ui.css  
+2020-07-05 15:54:53.937 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/swagger-ui.css  
+2020-07-05 15:54:53.938 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/swagger-ui-bundle.js  
+2020-07-05 15:54:53.941 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/swagger-ui-standalone-preset.js  
+2020-07-05 15:54:53.943 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/swagger-ui-bundle.js  
+2020-07-05 15:54:53.945 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/swagger-ui-standalone-preset.js  
+2020-07-05 15:54:53.980 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-07-05 15:54:53.980 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-07-05 15:54:53.982 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-07-05 15:54:53.983 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-07-05 15:54:53.980 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-07-05 15:54:53.987 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-07-05 15:54:53.989 +01:00 [INF] Request finished in 53.5413ms 200 text/css
+2020-07-05 15:54:53.989 +01:00 [INF] Request finished in 51.1716ms 200 application/javascript
+2020-07-05 15:54:53.991 +01:00 [INF] Request finished in 53.5413ms 200 text/css
+2020-07-05 15:54:53.992 +01:00 [INF] Request finished in 51.1716ms 200 application/javascript
+2020-07-05 15:54:53.989 +01:00 [INF] Request finished in 48.1106ms 200 application/javascript
+2020-07-05 15:54:53.995 +01:00 [INF] Request finished in 48.1106ms 200 application/javascript
+2020-07-05 15:54:54.154 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/v1/swagger.json  
+2020-07-05 15:54:54.156 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/v1/swagger.json  
+2020-07-05 15:54:54.176 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/favicon-32x32.png  
+2020-07-05 15:54:54.179 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/swagger/favicon-32x32.png  
+2020-07-05 15:54:54.182 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2020-07-05 15:54:54.184 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2020-07-05 15:54:54.186 +01:00 [INF] Request finished in 10.3238ms 200 image/png
+2020-07-05 15:54:54.188 +01:00 [INF] Request finished in 10.3238ms 200 image/png
+2020-07-05 15:54:54.238 +01:00 [INF] Request finished in 83.7315ms 200 application/json;charset=utf-8
+2020-07-05 15:54:54.240 +01:00 [INF] Request finished in 83.7315ms 200 application/json;charset=utf-8
+2020-07-05 15:55:11.260 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.265 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.270 +01:00 [INF] Request finished in 9.9627ms 404 
+2020-07-05 15:55:11.272 +01:00 [INF] Request finished in 9.9627ms 404 
+2020-07-05 15:55:11.388 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.396 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.405 +01:00 [INF] Request finished in 17.2553ms 404 
+2020-07-05 15:55:11.409 +01:00 [INF] Request finished in 17.2553ms 404 
+2020-07-05 15:55:11.515 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.518 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.520 +01:00 [INF] Request finished in 4.9969ms 404 
+2020-07-05 15:55:11.521 +01:00 [INF] Request finished in 4.9969ms 404 
+2020-07-05 15:55:11.624 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.632 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.642 +01:00 [INF] Request finished in 17.1521ms 404 
+2020-07-05 15:55:11.648 +01:00 [INF] Request finished in 17.1521ms 404 
+2020-07-05 15:55:11.761 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.764 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.768 +01:00 [INF] Request finished in 6.9048ms 404 
+2020-07-05 15:55:11.769 +01:00 [INF] Request finished in 6.9048ms 404 
+2020-07-05 15:55:11.873 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.876 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.879 +01:00 [INF] Request finished in 6.104ms 404 
+2020-07-05 15:55:11.881 +01:00 [INF] Request finished in 6.104ms 404 
+2020-07-05 15:55:11.910 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.912 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:11.915 +01:00 [INF] Request finished in 5.7329ms 404 
+2020-07-05 15:55:11.917 +01:00 [INF] Request finished in 5.7329ms 404 
+2020-07-05 15:55:12.028 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.033 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.037 +01:00 [INF] Request finished in 9.6877ms 404 
+2020-07-05 15:55:12.040 +01:00 [INF] Request finished in 9.6877ms 404 
+2020-07-05 15:55:12.152 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.156 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.159 +01:00 [INF] Request finished in 7.0856ms 404 
+2020-07-05 15:55:12.161 +01:00 [INF] Request finished in 7.0856ms 404 
+2020-07-05 15:55:12.278 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.287 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.296 +01:00 [INF] Request finished in 18.44ms 404 
+2020-07-05 15:55:12.302 +01:00 [INF] Request finished in 18.44ms 404 
+2020-07-05 15:55:12.419 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.422 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.423 +01:00 [INF] Request finished in 4.2627ms 404 
+2020-07-05 15:55:12.425 +01:00 [INF] Request finished in 4.2627ms 404 
+2020-07-05 15:55:12.528 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.531 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:24631/  
+2020-07-05 15:55:12.533 +01:00 [INF] Request finished in 4.8527ms 404 
+2020-07-05 15:55:12.536 +01:00 [INF] Request finished in 4.8527ms 404 
+2020-07-05 15:55:30.876 +01:00 [INF] WebApi Starting...
+2020-07-05 15:55:31.206 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 15:55:31.210 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 15:55:31.213 +01:00 [INF] Hosting environment: Development
+2020-07-05 15:55:31.216 +01:00 [INF] Hosting environment: Development
+2020-07-05 15:55:31.218 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 15:55:31.220 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 15:55:31.239 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 15:55:31.243 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 15:55:31.253 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 15:55:31.255 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 15:55:31.337 +01:00 [INF] Request finished in 101.449ms 404 
+2020-07-05 15:55:31.339 +01:00 [INF] Request finished in 101.449ms 404 
+2020-07-05 15:55:37.561 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 15:55:37.563 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 15:55:37.575 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:55:37.577 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:55:37.609 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 15:55:37.611 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 15:55:40.102 +01:00 [INF] Request received , with order id abcd
+2020-07-05 15:55:40.104 +01:00 [INF] Request received , with order id abcd
+2020-07-05 15:55:40.683 +01:00 [INF] Command sent, with order id abcd and payment id 280067f2-7c93-4223-b1eb-84f6c2dd15a0
+2020-07-05 15:55:40.685 +01:00 [INF] Command sent, with order id abcd and payment id 280067f2-7c93-4223-b1eb-84f6c2dd15a0
+2020-07-05 15:55:41.100 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 15:55:41.102 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 15:55:41.116 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 3498.5572ms
+2020-07-05 15:55:41.121 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 3498.5572ms
+2020-07-05 15:55:41.125 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:55:41.127 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:55:41.131 +01:00 [INF] Request finished in 3569.9886ms 202 application/json; charset=utf-8
+2020-07-05 15:55:41.133 +01:00 [INF] Request finished in 3569.9886ms 202 application/json; charset=utf-8
+2020-07-05 15:57:27.649 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 15:57:27.652 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 15:57:27.658 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:57:27.661 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:57:27.663 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 15:57:27.666 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 15:57:29.043 +01:00 [INF] Request received , with order id abcd
+2020-07-05 15:57:29.045 +01:00 [INF] Request received , with order id abcd
+2020-07-05 15:57:29.876 +01:00 [INF] Command sent, with order id abcd and payment id b6bfb7fb-c4c4-4815-b33e-1a9e5cdd2370
+2020-07-05 15:57:29.878 +01:00 [INF] Command sent, with order id abcd and payment id b6bfb7fb-c4c4-4815-b33e-1a9e5cdd2370
+2020-07-05 15:57:29.900 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 15:57:29.902 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 15:57:29.905 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 2236.7971ms
+2020-07-05 15:57:29.907 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 2236.7971ms
+2020-07-05 15:57:29.910 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:57:29.912 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:57:29.914 +01:00 [INF] Request finished in 2268.5819ms 202 application/json; charset=utf-8
+2020-07-05 15:57:29.915 +01:00 [INF] Request finished in 2268.5819ms 202 application/json; charset=utf-8
+2020-07-05 15:58:12.203 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 15:58:12.206 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 15:58:12.209 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:58:12.211 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:58:12.215 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 15:58:12.217 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 15:58:13.389 +01:00 [INF] Request received , with order id abcd
+2020-07-05 15:58:13.391 +01:00 [INF] Request received , with order id abcd
+2020-07-05 15:58:13.956 +01:00 [INF] Command sent, with order id abcd and payment id 584770f3-ddce-4f9a-9827-ea4b0b902542
+2020-07-05 15:58:13.957 +01:00 [INF] Command sent, with order id abcd and payment id 584770f3-ddce-4f9a-9827-ea4b0b902542
+2020-07-05 15:58:13.993 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 15:58:13.994 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 15:58:13.996 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 1778.1379ms
+2020-07-05 15:58:13.999 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 1778.1379ms
+2020-07-05 15:58:14.001 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:58:14.002 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 15:58:14.003 +01:00 [INF] Request finished in 1800.7341ms 202 application/json; charset=utf-8
+2020-07-05 15:58:14.005 +01:00 [INF] Request finished in 1800.7341ms 202 application/json; charset=utf-8
+2020-07-05 17:31:29.581 +01:00 [INF] WebApi Starting...
+2020-07-05 17:31:29.956 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 17:31:29.961 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 17:31:29.963 +01:00 [INF] Hosting environment: Development
+2020-07-05 17:31:29.965 +01:00 [INF] Hosting environment: Development
+2020-07-05 17:31:29.967 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 17:31:29.968 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 17:31:29.981 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 17:31:29.983 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 17:31:29.989 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 17:31:29.991 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 17:31:30.038 +01:00 [INF] Request finished in 59.3292ms 404 
+2020-07-05 17:31:30.040 +01:00 [INF] Request finished in 59.3292ms 404 
+2020-07-05 17:32:09.969 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 17:32:09.971 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 17:32:09.995 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:32:09.997 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:32:10.029 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 17:32:10.032 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 17:32:11.691 +01:00 [INF] Request received , with order id abcd
+2020-07-05 17:32:11.693 +01:00 [INF] Request received , with order id abcd
+2020-07-05 17:32:12.619 +01:00 [INF] Command sent, with order id abcd and payment id c8122008-c4fe-4f1c-85a2-45e97a65a6a1
+2020-07-05 17:32:12.621 +01:00 [INF] Command sent, with order id abcd and payment id c8122008-c4fe-4f1c-85a2-45e97a65a6a1
+2020-07-05 17:32:13.012 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 17:32:13.014 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 17:32:13.029 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 2990.5629ms
+2020-07-05 17:32:13.032 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 2990.5629ms
+2020-07-05 17:32:13.035 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:32:13.038 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:32:13.042 +01:00 [INF] Request finished in 3095.0214ms 202 application/json; charset=utf-8
+2020-07-05 17:32:13.043 +01:00 [INF] Request finished in 3095.0214ms 202 application/json; charset=utf-8
+2020-07-05 17:33:28.882 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 17:33:28.885 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 17:33:28.891 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:33:28.893 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:33:28.897 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 17:33:28.899 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 17:33:30.075 +01:00 [INF] Request received , with order id abcd
+2020-07-05 17:33:30.077 +01:00 [INF] Request received , with order id abcd
+2020-07-05 17:33:30.715 +01:00 [INF] Command sent, with order id abcd and payment id 93fa9828-31e7-42a1-b2db-bcaebaff6598
+2020-07-05 17:33:30.717 +01:00 [INF] Command sent, with order id abcd and payment id 93fa9828-31e7-42a1-b2db-bcaebaff6598
+2020-07-05 17:33:30.752 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 17:33:30.755 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 17:33:30.757 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 1856.1122ms
+2020-07-05 17:33:30.759 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 1856.1122ms
+2020-07-05 17:33:30.760 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:33:30.762 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:33:30.764 +01:00 [INF] Request finished in 1882.4582ms 202 application/json; charset=utf-8
+2020-07-05 17:33:30.766 +01:00 [INF] Request finished in 1882.4582ms 202 application/json; charset=utf-8
+2020-07-05 17:36:05.654 +01:00 [INF] WebApi Starting...
+2020-07-05 17:36:05.956 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 17:36:05.959 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 17:36:05.961 +01:00 [INF] Hosting environment: Development
+2020-07-05 17:36:05.963 +01:00 [INF] Hosting environment: Development
+2020-07-05 17:36:05.964 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 17:36:05.965 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 17:36:05.978 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 17:36:05.981 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 17:36:05.987 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 17:36:05.989 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 17:36:06.032 +01:00 [INF] Request finished in 56.8474ms 404 
+2020-07-05 17:36:06.034 +01:00 [INF] Request finished in 56.8474ms 404 
+2020-07-05 17:36:28.840 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 17:36:28.842 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 17:36:28.863 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:36:28.865 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:36:28.895 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 17:36:28.897 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 17:36:30.533 +01:00 [INF] Request received , with order id abcd
+2020-07-05 17:36:30.536 +01:00 [INF] Request received , with order id abcd
+2020-07-05 17:36:31.120 +01:00 [INF] Command sent, with order id abcd and payment id 4a312293-5f30-447c-bcb1-780a3e21a6ba
+2020-07-05 17:36:31.122 +01:00 [INF] Command sent, with order id abcd and payment id 4a312293-5f30-447c-bcb1-780a3e21a6ba
+2020-07-05 17:36:31.525 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 17:36:31.528 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 17:36:31.544 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 2640.1296ms
+2020-07-05 17:36:31.548 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 2640.1296ms
+2020-07-05 17:36:31.551 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:36:31.553 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:36:31.556 +01:00 [INF] Request finished in 2717.9929ms 202 application/json; charset=utf-8
+2020-07-05 17:36:31.558 +01:00 [INF] Request finished in 2717.9929ms 202 application/json; charset=utf-8
+2020-07-05 17:36:54.831 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 17:36:54.835 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/paymentgateway/make-payment application/json 194
+2020-07-05 17:36:54.841 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:36:54.844 +01:00 [INF] Executing endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:36:54.847 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 17:36:54.849 +01:00 [INF] Route matched with {action = "MakePayment", controller = "PaymentGateway"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MakePayment(PaymentGateway.WriteModel.API.Models.PaymentRequest) on controller PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController (PaymentGateway.WriteModel.API).
+2020-07-05 17:36:56.031 +01:00 [INF] Request received , with order id abcd
+2020-07-05 17:36:56.034 +01:00 [INF] Request received , with order id abcd
+2020-07-05 17:36:56.668 +01:00 [INF] Command sent, with order id abcd and payment id 6dd39c2e-57dd-4d07-8387-0ef1f5df2ef4
+2020-07-05 17:36:56.670 +01:00 [INF] Command sent, with order id abcd and payment id 6dd39c2e-57dd-4d07-8387-0ef1f5df2ef4
+2020-07-05 17:36:56.694 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 17:36:56.698 +01:00 [INF] Executing ObjectResult, writing value of type 'PaymentGateway.WriteModel.API.Models.PaymentResponse'.
+2020-07-05 17:36:56.700 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 1849.0433ms
+2020-07-05 17:36:56.701 +01:00 [INF] Executed action PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API) in 1849.0433ms
+2020-07-05 17:36:56.703 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:36:56.705 +01:00 [INF] Executed endpoint 'PaymentGateway.WriteModel.API.Controllers.PaymentGatewayController.MakePayment (PaymentGateway.WriteModel.API)'
+2020-07-05 17:36:56.707 +01:00 [INF] Request finished in 1876.7734ms 202 application/json; charset=utf-8
+2020-07-05 17:36:56.709 +01:00 [INF] Request finished in 1876.7734ms 202 application/json; charset=utf-8
+2020-07-05 17:53:41.193 +01:00 [INF] WebApi Starting...
+2020-07-05 17:53:41.554 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 17:53:41.557 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 17:53:41.560 +01:00 [INF] Hosting environment: Development
+2020-07-05 17:53:41.563 +01:00 [INF] Hosting environment: Development
+2020-07-05 17:53:41.566 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 17:53:41.567 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 17:53:41.581 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 17:53:41.583 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 17:53:41.589 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 17:53:41.591 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 17:53:41.635 +01:00 [INF] Request finished in 55.8798ms 404 
+2020-07-05 17:53:41.637 +01:00 [INF] Request finished in 55.8798ms 404 
+2020-07-05 17:55:19.146 +01:00 [INF] WebApi Starting...
+2020-07-05 17:55:19.478 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 17:55:19.481 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 17:55:19.483 +01:00 [INF] Hosting environment: Development
+2020-07-05 17:55:19.487 +01:00 [INF] Hosting environment: Development
+2020-07-05 17:55:19.488 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 17:55:19.490 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 17:55:19.502 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 17:55:19.504 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 17:55:19.510 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 17:55:19.512 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 17:55:19.555 +01:00 [INF] Request finished in 55.618ms 404 
+2020-07-05 17:55:19.557 +01:00 [INF] Request finished in 55.618ms 404 
+2020-07-05 18:03:34.855 +01:00 [INF] WebApi Starting...
+2020-07-05 18:03:39.673 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 18:03:39.682 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-07-05 18:03:39.687 +01:00 [INF] Hosting environment: Development
+2020-07-05 18:03:39.693 +01:00 [INF] Hosting environment: Development
+2020-07-05 18:03:39.697 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 18:03:39.702 +01:00 [INF] Content root path: C:\code\payment\Checkout\src\PaymentGateway.WriteModel.API
+2020-07-05 18:03:39.725 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 18:03:39.731 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/paymentgateway  
+2020-07-05 18:03:39.741 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 18:03:39.744 +01:00 [WRN] Failed to determine the https port for redirect.
+2020-07-05 18:03:39.817 +01:00 [INF] Request finished in 96.3316ms 404 
+2020-07-05 18:03:39.819 +01:00 [INF] Request finished in 96.3316ms 404 

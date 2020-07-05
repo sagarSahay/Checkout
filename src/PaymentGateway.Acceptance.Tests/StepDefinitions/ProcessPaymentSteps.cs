@@ -15,21 +15,27 @@ namespace PaymentGateway.Acceptance.Tests.StepDefinitions
     {
         private PaymentInfo paymentInfo;
         private IRestResponse paymentResponse;
-        
+
+        [Given(@"'(.*)' is registered with LLoyds bank")]
+        public void GivenIsRegisteredWithLLoydsBank(string merchantId)
+        {
+            //ScenarioContext.Current.Pending();
+        }
+
+
         [Given(@"the following details about an order"), Scope(Feature="GetPaymentDetails")]
         public void GivenFollowingDetailsAboutAnOrder(Table table)
         {
             paymentInfo = table.CreateInstance<PaymentInfo>();
         }
 
-        [When(@"When payment gateway processes a payment"), Scope(Feature = "GetPaymentDetails")]
-        public async Task WhenGatewayProcessesAPayment()
+        [When(@"payment gateway processes a payment")]
+        public async Task WhenPaymentGatewayProcessesAPayment()
         {
             var client = new RestClient("https://localhost:5009");
-            var request = new RestRequest("/make-payment",Method.POST);
+            var request = new RestRequest("/make-payment", Method.POST);
 
             paymentResponse = await client.PostAsync<IRestResponse>(request);
-            
         }
 
         [Then(@"an accepted result is returned with a payment id")]

@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:24631",
+      "applicationUrl": "http://localhost:5009",
       "sslPort": 0
     }
   },
@@ -19,7 +19,7 @@
     },
     "PaymentGateway.WriteModel.API": {
       "commandName": "Project",
-      "launchBrowser": false,
+      "launchBrowser": true,
       "launchUrl": "paymentgateway/hello",
       "applicationUrl": "https://localhost:5009;http://localhost:5010",
       "environmentVariables": {
