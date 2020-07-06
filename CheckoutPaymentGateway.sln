@@ -18,11 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		build.ps1 = build.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.WriteModel.API.Tests", "src\PaymentGateway.WriteModel.API.Tests\PaymentGateway.WriteModel.API.Tests.csproj", "{C4DB3ECC-C80C-4B04-94C3-F6BC1A56EE39}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.ReadModel.Denormalizer", "src\PaymentGateway.ReadModel.Denormalizer\PaymentGateway.ReadModel.Denormalizer.csproj", "{5D3D822A-BB3E-4980-ABAC-C4B829DAE691}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.WriteModel.Application.Tests", "src\PaymentGateway.WriteModel.Application.Tests\PaymentGateway.WriteModel.Application.Tests.csproj", "{AD6AB365-FDC7-457F-8781-0155FDBF9ECB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.ReadModel.API", "src\PaymentGateway.ReadModel.API\PaymentGateway.ReadModel.API.csproj", "{4E70223D-DEAC-4BDB-9687-03F127555F7C}"
 EndProject
@@ -30,9 +26,13 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcquiringBank.API", "src\AcquiringBank.API\AcquiringBank.API.csproj", "{E110A269-18B2-4277-964F-2687E1908A12}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Acceptance.Tests", "src\PaymentGateway.Acceptance.Tests\PaymentGateway.Acceptance.Tests.csproj", "{B4772793-DF66-40FB-BA2C-C61424C23465}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Events", "src\PaymentGateway.Events\PaymentGateway.Events.csproj", "{579575AB-7050-48EE-8209-758DE1BE8584}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.WriteModel.Application.Tests", "Tests\PaymentGateway.WriteModel.Application.Tests\PaymentGateway.WriteModel.Application.Tests.csproj", "{A4540EDE-8969-4273-8B56-907FBDF6D307}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Acceptance.Tests", "Tests\PaymentGateway.Acceptance.Tests\PaymentGateway.Acceptance.Tests.csproj", "{8B183466-6642-40F6-A34D-35FCE16398FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.WriteModel.API.Tests", "Tests\PaymentGateway.WriteModel.API.Tests\PaymentGateway.WriteModel.API.Tests.csproj", "{68690E4E-7921-4054-8E64-7E44FE45F007}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,18 +56,10 @@ Global
 		{1236E5FB-BC88-423D-9FEF-B5BADFC9DB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1236E5FB-BC88-423D-9FEF-B5BADFC9DB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1236E5FB-BC88-423D-9FEF-B5BADFC9DB90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4DB3ECC-C80C-4B04-94C3-F6BC1A56EE39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4DB3ECC-C80C-4B04-94C3-F6BC1A56EE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4DB3ECC-C80C-4B04-94C3-F6BC1A56EE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4DB3ECC-C80C-4B04-94C3-F6BC1A56EE39}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D3D822A-BB3E-4980-ABAC-C4B829DAE691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5D3D822A-BB3E-4980-ABAC-C4B829DAE691}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D3D822A-BB3E-4980-ABAC-C4B829DAE691}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D3D822A-BB3E-4980-ABAC-C4B829DAE691}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD6AB365-FDC7-457F-8781-0155FDBF9ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD6AB365-FDC7-457F-8781-0155FDBF9ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD6AB365-FDC7-457F-8781-0155FDBF9ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD6AB365-FDC7-457F-8781-0155FDBF9ECB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E70223D-DEAC-4BDB-9687-03F127555F7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E70223D-DEAC-4BDB-9687-03F127555F7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E70223D-DEAC-4BDB-9687-03F127555F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -80,14 +72,22 @@ Global
 		{E110A269-18B2-4277-964F-2687E1908A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E110A269-18B2-4277-964F-2687E1908A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E110A269-18B2-4277-964F-2687E1908A12}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B4772793-DF66-40FB-BA2C-C61424C23465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4772793-DF66-40FB-BA2C-C61424C23465}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4772793-DF66-40FB-BA2C-C61424C23465}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4772793-DF66-40FB-BA2C-C61424C23465}.Release|Any CPU.Build.0 = Release|Any CPU
 		{579575AB-7050-48EE-8209-758DE1BE8584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{579575AB-7050-48EE-8209-758DE1BE8584}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{579575AB-7050-48EE-8209-758DE1BE8584}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{579575AB-7050-48EE-8209-758DE1BE8584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4540EDE-8969-4273-8B56-907FBDF6D307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4540EDE-8969-4273-8B56-907FBDF6D307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4540EDE-8969-4273-8B56-907FBDF6D307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4540EDE-8969-4273-8B56-907FBDF6D307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B183466-6642-40F6-A34D-35FCE16398FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B183466-6642-40F6-A34D-35FCE16398FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B183466-6642-40F6-A34D-35FCE16398FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B183466-6642-40F6-A34D-35FCE16398FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68690E4E-7921-4054-8E64-7E44FE45F007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68690E4E-7921-4054-8E64-7E44FE45F007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68690E4E-7921-4054-8E64-7E44FE45F007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68690E4E-7921-4054-8E64-7E44FE45F007}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
