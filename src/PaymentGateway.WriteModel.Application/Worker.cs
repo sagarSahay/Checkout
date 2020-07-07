@@ -23,19 +23,12 @@ namespace PaymentGateway.WriteModel.Application
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
+            var paymentHandler = busControl.ConnectReceiveEndpoint(queueSettings.ReceiveQueueName, x =>
             {
-                var paymentHandler = busControl.ConnectReceiveEndpoint(queueSettings.ReceiveQueueName, x =>
-                {
-                    x.Consumer<ProcessPaymentHandler>(serviceProvider);
-                });
+                x.Consumer<ProcessPaymentHandler>(serviceProvider);
+            });
 
-                await paymentHandler.Ready;
-            }
-            catch (Exception ex)
-            {
-
-            }
+            await paymentHandler.Ready;
         }
     }
 }

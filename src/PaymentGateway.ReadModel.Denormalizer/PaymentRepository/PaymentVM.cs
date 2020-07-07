@@ -14,6 +14,9 @@ namespace PaymentGateway.ReadModel.Denormalizer.PaymentRepository
         public string PaymentResponseId { get; set; }
         public string PaymentResponseStatus { get; set; }
 
+        public string Cvv { get; set; }
+        public string ExpiryDate { get; set; }
+
         public string PaymentStatus { get; set; }
     }
 }

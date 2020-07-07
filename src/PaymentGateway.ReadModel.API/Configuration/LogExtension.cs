@@ -16,20 +16,13 @@ namespace PaymentGateway.ReadModel.API.Configuration
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
                 .Build();
 
-            try
-            {
-                Log.Logger = new LoggerConfiguration()
-                    .ReadFrom.Configuration(configuration)
-                    .CreateLogger();
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
 
-                services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog());
+            services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog());
 
-                Log.Information("Payment query api Starting...");
-            }
-            catch (Exception ex)
-            {
-
-            }
+            Log.Information("Payment query api Starting...");
 
             return services;
         }

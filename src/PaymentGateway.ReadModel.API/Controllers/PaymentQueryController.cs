@@ -4,6 +4,7 @@ namespace PaymentGateway.ReadModel.API.Controllers
     using System.Linq;
     using System.Threading.Tasks;
     using Denormalizer.PaymentRepository;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
 
     [Route("api/query")]
@@ -18,6 +19,8 @@ namespace PaymentGateway.ReadModel.API.Controllers
         }
 
         [HttpGet("/payment-info/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(string id)
         {
             var paymentObj = await paymentQueryRepository.GetById(id);

@@ -20,7 +20,7 @@
     {
         private class Arrangements
         {
-            private IAcquiringBank bank { get; }
+            private ICallBankApi callBankApi { get; }
             public ProcessPaymentHandler SUT { get; }
 
             public ProcessPayment Command { get; }
@@ -31,13 +31,13 @@
             public List<IEvent> FiredEvents { get; }
 
 
-            public Arrangements(IAcquiringBank bank, 
+            public Arrangements(ICallBankApi callBankApi, 
                 IServiceProvider serviceProvider,
                 IPublishEndpoint publishEndpoint,
                 ConsumeContext<ProcessPayment> consumeContext,
                 List<IEvent> firedEvents)
             {
-                this.bank = bank;
+                this.callBankApi = callBankApi;
                 ConsumeContext  = consumeContext;
                 PublishEndpoint = publishEndpoint;
                 FiredEvents = firedEvents;
@@ -47,8 +47,7 @@
 
         private class ArrangementsBuilder
         {
-            private Mock<IAcquiringBank> acquiringBankMock;
-            private Mock<IBankFactory> bankFactoryMock;
+            private Mock<ICallBankApi> callBankApiMock;
             private ProcessPayment cmd;
             IServiceProvider serviceProvider;
             private Mock<ConsumeContext<ProcessPayment>> consumeContextMock;
@@ -58,24 +57,31 @@
             public ArrangementsBuilder WithACommandWhichResultsInSuccess()
             {
                 cmd = InitialiseAProcessPaymentCommand();
-                acquiringBankMock = new Mock<IAcquiringBank>();
-                bankFactoryMock = new Mock<IBankFactory>();
-                acquiringBankMock.Setup(x => x.ProcessPayment(cmd.CardNumber,
-                cmd.Cvv,cmd.ExpiryDate,cmd.Amount,cmd.Currency, cmd.MerchantId)).Returns((Guid.NewGuid(), "SUCCESS"));
+                callBankApiMock = new Mock<ICallBankApi>();
 
-                bankFactoryMock.Setup(x => x.GetBank(cmd.MerchantId)).Returns(acquiringBankMock.Object);
+                callBankApiMock.Setup(x => x.CallBank(cmd)).Returns((Guid.NewGuid(), "SUCCESS"));
+                
                 SetupServiceProviderAndResolvePublishEndpoint(true);
                 return this;
             }
             public ArrangementsBuilder WithACommandWhichResultsInFailure()
             {
                 cmd = InitialiseAProcessPaymentCommand();
-                acquiringBankMock = new Mock<IAcquiringBank>();
-                bankFactoryMock = new Mock<IBankFactory>();
-                acquiringBankMock.Setup(x => x.ProcessPayment(cmd.CardNumber,
-                    cmd.Cvv,cmd.ExpiryDate,cmd.Amount,cmd.Currency, cmd.MerchantId)).Returns((Guid.NewGuid(), "FAILURE"));
+                callBankApiMock = new Mock<ICallBankApi>();
 
-                bankFactoryMock.Setup(x => x.GetBank(cmd.MerchantId)).Returns(acquiringBankMock.Object);
+                callBankApiMock.Setup(x => x.CallBank(cmd)).Returns((Guid.NewGuid(), "UNSUCCESSFUL"));
+
+                SetupServiceProviderAndResolvePublishEndpoint(false);
+                return this;
+            }
+            
+            public ArrangementsBuilder WithACommandWhichResultsInSystemError()
+            {
+                cmd = InitialiseAProcessPaymentCommand();
+                callBankApiMock = new Mock<ICallBankApi>();
+
+                callBankApiMock.Setup(x => x.CallBank(cmd)).Returns((Guid.NewGuid(), "System error: "));
+
                 SetupServiceProviderAndResolvePublishEndpoint(false);
                 return this;
             }
@@ -96,7 +102,7 @@
                 
                 var serviceCollection = new ServiceCollection();
                 serviceCollection.AddScoped<IPublishEndpoint>(provider => publishEndpointMock.Object);
-                serviceCollection.AddScoped<IBankFactory>(provider => bankFactoryMock.Object);
+                serviceCollection.AddScoped<ICallBankApi>(provider => callBankApiMock.Object);
                 serviceProvider = serviceCollection.BuildServiceProvider();
             }
             private ProcessPayment InitialiseAProcessPaymentCommand()
@@ -119,7 +125,7 @@
 
             public Arrangements Build()
             {
-               return new Arrangements(acquiringBankMock.Object, 
+               return new Arrangements(callBankApiMock.Object, 
                    serviceProvider, 
                    publishEndpointMock.Object, 
                    consumeContextMock.Object,
@@ -164,6 +170,24 @@
 
             evt.Should().BeOfType<PaymentUnsuccessful>();
         }
+        
+        [Fact]
+        public async Task ProcessPayment_WhenProcessingPaymentCausesSytemError_SendsPaymentErrorMessage()
+        {
+            // Arrange
+            var arrangements = new ArrangementsBuilder()
+                .WithACommandWhichResultsInSystemError()
+                .Build();
+            
+            // Act
+            await arrangements.SUT.Consume(arrangements.ConsumeContext);
+            
+            // Assert
+            arrangements.FiredEvents.Count.Should().Be(1);
 
+            var evt = arrangements.FiredEvents.FirstOrDefault();
+
+            evt.Should().BeOfType<PaymentError>();
+        }
     }
 }

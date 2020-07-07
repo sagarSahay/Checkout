@@ -1,5 +1,6 @@
 ﻿namespace PaymentGateway.WriteModel.Application.Configuration
 {
+    using AcquiringBankServices;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
@@ -15,6 +16,7 @@
 
             services.AddSingleton(bankSettings);
             services.AddScoped<IBankFactory, AcquiringBankFactory>();
+            services.AddScoped<ICallBankApi, CallBankApi>();
             return services;
         }
     }

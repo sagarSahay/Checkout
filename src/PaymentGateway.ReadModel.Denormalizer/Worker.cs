@@ -23,19 +23,12 @@ namespace PaymentGateway.ReadModel.Denormalizer
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
+            var paymentDenormalizer = busControl.ConnectReceiveEndpoint(queueSettings.ReceiveQueueName, x =>
             {
-                var paymentDenormalizer = busControl.ConnectReceiveEndpoint(queueSettings.ReceiveQueueName, x =>
-                {
-                    x.Consumer<PaymentDenormalizer>(serviceProvider);
-                });
+                x.Consumer<PaymentDenormalizer>(serviceProvider);
+            });
 
-                await paymentDenormalizer.Ready;
-            }
-            catch (Exception ex)
-            {
-
-            }
+            await paymentDenormalizer.Ready;
         }
     }
 }

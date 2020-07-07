@@ -35,7 +35,9 @@ namespace PaymentGateway.ReadModel.Denormalizer.Handlers
                 CardNumber = message.CardNumber,
                 Currency = message.Currency,
                 MerchantId = message.MerchantId,
-                PaymentStatus = "Successful"
+                PaymentStatus = "Successful",
+                Cvv = message.Cvv,
+                ExpiryDate = message.ExpiryDate
             };
             
             var paymentDoc = new DocumentBase<PaymentVM>(){ VM = paymentVm};
@@ -58,7 +60,9 @@ namespace PaymentGateway.ReadModel.Denormalizer.Handlers
                 CardNumber = message.CardNumber,
                 Currency = message.Currency,
                 MerchantId = message.MerchantId,
-                PaymentStatus = "Unsuccessful"
+                PaymentStatus = "Unsuccessful",
+                Cvv = message.Cvv,
+                ExpiryDate = message.ExpiryDate
             };
             
             var paymentDoc = new DocumentBase<PaymentVM>(){ VM = paymentVm};
@@ -79,7 +83,9 @@ namespace PaymentGateway.ReadModel.Denormalizer.Handlers
                 CardNumber = message.CardNumber,
                 Currency = message.Currency,
                 MerchantId = message.MerchantId,
-                PaymentStatus = "System error"
+                PaymentStatus = "System error",
+                Cvv = message.Cvv,
+                ExpiryDate = message.ExpiryDate
             };
             
             var paymentDoc = new DocumentBase<PaymentVM>(){ VM = paymentVm};

@@ -68,12 +68,5 @@ namespace PaymentGateway.WriteModel.API.Controllers
 
             return Accepted(new PaymentResponse() {PaymentId = command.PaymentId});
         }
-
-        [HttpGet]
-        [Route("hello")]
-        public string Hello()
-        {
-            return "hello";
-        }
     }
 }

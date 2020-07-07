@@ -1,10 +1,11 @@
 # Checkout payment gateway
 
+Master branch build status : [appveyor- build](https://ci.appveyor.com/api/github/webhook?id=x88cptgwa2ueir8a)
 ## Overview
 
 -This payment gateway accepts a request from merchant and then calls an acquiring bank api to process the payment.
--The acquiring bank send back a payment response id and a status message. 
--The merchant can then quey the payment gateway to get the result of the payment and all the transactions done under its Id.
+-The acquiring bank send back a payment response id and a status message.
+-The merchant can then query the payment gateway to get the result of the payment and all the transactions done under its Id.
 
 ## My assumptions
 - Each merchant is registered with a bank
@@ -12,7 +13,7 @@
 
 ## Solution
 - My solution is based on CQRS architecture and has following executables:
-1) PaymentGateway.WriteModel.API 
+1) PaymentGateway.WriteModel.API
 2) PaymentGateway.WriteModel.Application
 3) PaymentGateway.ReadModel.Denormalizer
 4) PaymentGateway.ReadModel.API
@@ -23,7 +24,7 @@ I have used MassTransit wrapper for RabbitMq as the messaging bus and Mongo Db a
 ## Workflow
 
 1) A merchant calls the WriteModel.API end point with a payment request and receives a payment id in response.
-
+Request example:
 ```json
 {
     "CardNumber":"1234-1234-1234-1234",
@@ -31,8 +32,14 @@ I have used MassTransit wrapper for RabbitMq as the messaging bus and Mongo Db a
     "ExpiryDate":"01/2021" ,
     "OrderId" : "abcd",
     "Amount":12,
-    "Currency":"£",
-    "MerchantId": "merchant1" 
+    "Currency":"ï¿½",
+    "MerchantId": "merchant1"
+}
+```
+Response is below :
+```json
+{
+    "paymentId": "74f756ec-9179-4962-aee6-e88287c37008"
 }
 ```
 
@@ -53,6 +60,10 @@ This will start all the relevant services.
 
 Rabbit MQ takes some time start and warm up.
 
+If on windows machine run build.ps1 that will run the above docker compose command.
+
+At the moment the ports on the url's are hardcoded.
+
 
 ## Swagger end points
 
@@ -69,6 +80,8 @@ I have mocked the Acquiring bank API to return success with a new payment id alw
 
 ## Further enhancements needed
 
-- Acceptance tests need somw work.
-- Versionion of API
-- Adding eventstore to store all events published from WriteModel.Application
+1. Acceptance tests need some work.
+2. Versioning of API
+3. Adding eventstore to store all events published from WriteModel.Application
+4. Authentication
+5. More logging

@@ -12,6 +12,9 @@ namespace PaymentGateway.Events.v1
         public string OrderId { get; set; }
         public Guid PaymentId { get; set; }
         public string Error { get; set; }
+        
+        public string Cvv { get; set; }
+        public string ExpiryDate { get; set; }
 
         public string MerchantId { get; set; }
     }

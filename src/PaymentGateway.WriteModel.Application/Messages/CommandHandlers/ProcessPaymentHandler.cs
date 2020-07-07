@@ -1,10 +1,10 @@
-using PaymentGateway.Events.v1;
-
 namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
 {
     using System;
     using System.Threading.Tasks;
+    using AcquiringBankServices;
     using Commands;
+    using Events.v1;
     using MassTransit;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -21,37 +21,9 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
         {
             var command = context.Message;
             var publishEndpoint = serviceProvider.GetService<IPublishEndpoint>();
-            var bankFactory = serviceProvider.GetService<IBankFactory>();
-            var bank = bankFactory.GetBank(command.MerchantId);
-
-            var bankApiResult = (paymentResponseId:Guid.Empty, paymentMessage:string.Empty);
-            try
-            {
-                bankApiResult = bank.ProcessPayment(
-                    command.CardNumber,
-                    command.Cvv, command.ExpiryDate,
-                    command.Amount,
-                    command.Currency,
-                    command.MerchantId);
-            }
-            catch (Exception e)
-            {
-               var paymentError = new PaymentError()
-               {
-                   Amount = command.Amount,
-                   MerchantId = command.MerchantId,
-                   CardNumber = TrimCardNumber(command.CardNumber),
-                   Currency = command.Currency,
-                   OrderId = command.OrderId,
-                   PaymentId = command.PaymentId,
-                   Error = e.Message
-               };
-               await publishEndpoint.Publish(paymentError);
-               return;
-            }
-            //var (paymentResponseId, paymentMessage) = (Guid.NewGuid(), "SUCCESS");
-           
-
+            var bankService = serviceProvider.GetService<ICallBankApi>();
+            (Guid paymentResponseId, string paymentMessage) bankApiResult = bankService.CallBank(command);
+            //TODO: Add event store 
             if (bankApiResult.paymentMessage == "SUCCESS")
             {
                 var msg = new PaymentSuccessful()
@@ -63,10 +35,28 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
                     PaymentResponseId = bankApiResult.paymentResponseId.ToString(),
                     PaymentResponseStatus = bankApiResult.paymentMessage,
                     OrderId = command.OrderId,
-                    MerchantId = command.MerchantId
+                    MerchantId = command.MerchantId,
+                    Cvv = command.Cvv,
+                    ExpiryDate = command.ExpiryDate
                 };
 
                 await publishEndpoint.Publish(msg);
+            }
+            else if (bankApiResult.paymentMessage.Contains("System error"))
+            {
+                var paymentError = new PaymentError()
+                {
+                    Amount = command.Amount,
+                    MerchantId = command.MerchantId,
+                    CardNumber = TrimCardNumber(command.CardNumber),
+                    Currency = command.Currency,
+                    OrderId = command.OrderId,
+                    PaymentId = command.PaymentId,
+                    Error = bankApiResult.paymentMessage,
+                    Cvv = command.Cvv,
+                    ExpiryDate = command.ExpiryDate
+                };
+                await publishEndpoint.Publish(paymentError);
             }
             else
             {
@@ -77,7 +67,9 @@ namespace PaymentGateway.WriteModel.Application.Messages.CommandHandlers
                     Currency = command.Currency,
                     ErrorMessage = bankApiResult.paymentMessage,
                     OrderId = command.OrderId,
-                    MerchantId = command.MerchantId
+                    MerchantId = command.MerchantId,
+                    Cvv = command.Cvv,
+                    ExpiryDate = command.ExpiryDate
                 };
 
                 await publishEndpoint.Publish(msg);
