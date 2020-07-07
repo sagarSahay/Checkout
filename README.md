@@ -1,18 +1,19 @@
 # Checkout payment gateway
 
-Master branch build status : [appveyor- build](https://ci.appveyor.com/api/github/webhook?id=x88cptgwa2ueir8a)
+[![Build status](https://ci.appveyor.com/api/projects/status/ly9ue6aypox2canl/branch/master?svg=true)](https://ci.appveyor.com/project/sagarSahay/checkout/branch/master)
 ## Overview
 
--This payment gateway accepts a request from merchant and then calls an acquiring bank api to process the payment.
--The acquiring bank send back a payment response id and a status message.
--The merchant can then query the payment gateway to get the result of the payment and all the transactions done under its Id.
+1. This payment gateway accepts a request from merchant and then calls an acquiring bank api to process the payment.
+2. The acquiring bank send back a payment response id and a status message.
+3. The merchant can then query the payment gateway to get the result of the payment and all the transactions done under its Id.
 
 ## My assumptions
-- Each merchant is registered with a bank
-- In this solution 'merchant1' is registered with LLoyds and ever other merchant id is registered with Barclays.
+1. Each merchant is registered with a bank
+2. In this solution 'merchant1' is registered with LLoyds and ever other merchant id is registered with Barclays.
+3. Card numbers are 16 digits or can be separated by '-'.
 
 ## Solution
-- My solution is based on CQRS architecture and has following executables:
+-  My solution is based on CQRS architecture and has following executables:
 1) PaymentGateway.WriteModel.API
 2) PaymentGateway.WriteModel.Application
 3) PaymentGateway.ReadModel.Denormalizer
