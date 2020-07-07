@@ -22,7 +22,7 @@
             services.AddSingleton(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
                
-                cfg.Host(new Uri(queueSettings.HostName), h => {
+                cfg.Host(queueSettings.HostName, "/", h => {
                     h.Username(queueSettings.Username);
                     h.Password(queueSettings.Password);
                 });

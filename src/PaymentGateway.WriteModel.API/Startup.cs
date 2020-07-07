@@ -70,14 +70,14 @@ namespace PaymentGateway.WriteModel.API
                 {
                     var bus = Bus.Factory.CreateUsingRabbitMq(sbc =>
                     {
-                        sbc.Host(new Uri(rabbitHost), h =>
+                        sbc.Host(rabbitHost,"/", h =>
                         {
                             h.Username(rabbitUser);
                             h.Password(rabbitPassword);
                         });
                     });
 
-                    return bus.GetSendEndpoint(new Uri($"{rabbitHost}/{commandQueue}")).Result;
+                    return bus.GetSendEndpoint(new Uri($"queue:{commandQueue}")).Result;
                 }
             );
 

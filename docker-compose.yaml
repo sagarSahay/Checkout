@@ -24,10 +24,12 @@ services:
         depends_on:
           - rabbitmq
         ports:
-            - 5009:80
-  acquiring-bank:
+            - 5009:443
+            - 5010:80
+  read-api:
     build:
       context: ./src/
-      dockerfile: $PWD/src/AcquiringBank.API/Dockerfile
+      dockerfile: $PWD/src/PaymentGateway.ReadModel.API/Dockerfile
     ports:
-      - 6002:80
+      - 5011:443
+      - 5012:80
