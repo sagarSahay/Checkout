@@ -3,12 +3,10 @@ namespace PaymentGateway.Acceptance.Tests.StepDefinitions
     using System.Net;
     using System.Threading.Tasks;
     using FluentAssertions;
-    using Microsoft.AspNetCore.Mvc;
     using Models;
     using RestSharp;
     using TechTalk.SpecFlow;
     using TechTalk.SpecFlow.Assist;
-    using WriteModel.API.Models;
 
     [Binding]
     public class ProcessPaymentSteps

@@ -7,7 +7,7 @@ Feature: GetPaymentDetails
   Background:
     Given 'merchant1' is registered with LLoyds bank
 
-  @acceptance
+  @ignore
   Scenario: Process A payment
     Given the following details about an order
       | OrderId | MerchantId | CardNumber          | Cvv | ExpiryDate | Amount | Currency |

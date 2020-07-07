@@ -40,9 +40,9 @@ namespace PaymentGateway.Acceptance.Tests
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "GetPaymentDetails", "  In order to give merchant details about payment\n  As a payment gateway\n  We sho" +
-                    "uld be able to process payment and provide them with an id to query the status o" +
-                    "f payment", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "GetPaymentDetails", "  In order to give merchant details about payment\r\n  As a payment gateway\r\n  We s" +
+                    "hould be able to process payment and provide them with an id to query the status" +
+                    " of payment", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -94,11 +94,11 @@ namespace PaymentGateway.Acceptance.Tests
         [Xunit.SkippableFactAttribute(DisplayName="Process A payment")]
         [Xunit.TraitAttribute("FeatureTitle", "GetPaymentDetails")]
         [Xunit.TraitAttribute("Description", "Process A payment")]
-        [Xunit.TraitAttribute("Category", "acceptance")]
+        [Xunit.TraitAttribute("Category", "ignore")]
         public virtual void ProcessAPayment()
         {
             string[] tagsOfScenario = new string[] {
-                    "acceptance"};
+                    "ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Process A payment", null, tagsOfScenario, argumentsOfScenario);
 #line 11

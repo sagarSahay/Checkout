@@ -1,0 +1,8 @@
+version: 1.0.{build}
+build_script:
+- pwsh: >-
+    dotnet restore CheckoutPaymentGateway.sln
+
+    dotnet test CheckoutPaymentGateway.sln
+test_script:
+- pwsh: dotnet test src/
