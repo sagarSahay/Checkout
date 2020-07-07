@@ -9,7 +9,7 @@ services:
             - 5672:5672
             - 5671:5671
             - 4369:4369
-  database:
+  mongo:
         image: mongo
         container_name: checkout-mongo
         environment:
@@ -27,9 +27,32 @@ services:
             - 5009:443
             - 5010:80
   read-api:
-    build:
-      context: ./src/
-      dockerfile: $PWD/src/PaymentGateway.ReadModel.API/Dockerfile
-    ports:
-      - 5011:443
-      - 5012:80
+        build:
+          context: ./src/
+          dockerfile: $PWD/src/PaymentGateway.ReadModel.API/Dockerfile
+        ports:
+          - 5011:443
+          - 5012:80
+  
+  write-application:
+        build:
+          context: ./src/
+          dockerfile: $PWD/src/PaymentGateway.WriteModel.Application/Dockerfile
+        depends_on:
+            - rabbitmq
+
+  read-denormalizer:
+        build:
+          context: ./src/
+          dockerfile: $PWD/src/PaymentGateway.ReadModel.Denormalizer/Dockerfile
+        depends_on:
+            - rabbitmq
+            - mongo
+  
+  acquiring-bank-api:
+        build:
+          context: ./src/
+          dockerfile: $PWD/src/AcquiringBank.API/Dockerfile
+        ports:
+          - 6001:443
+          - 6002:80

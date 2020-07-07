@@ -13,5 +13,7 @@ namespace PaymentGateway.Events.v1
         public Guid PaymentId { get; set; }
         public string PaymentResponseId { get; set; }
         public string PaymentResponseStatus { get; set; }
+
+        public string MerchantId { get; set; }
     }
 }

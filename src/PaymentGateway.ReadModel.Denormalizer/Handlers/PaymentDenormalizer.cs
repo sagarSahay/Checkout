@@ -10,7 +10,8 @@ namespace PaymentGateway.ReadModel.Denormalizer.Handlers
 
     public class PaymentDenormalizer : 
         IConsumer<PaymentSuccessful>, 
-        IConsumer<PaymentUnsuccessful>
+        IConsumer<PaymentUnsuccessful>,
+        IConsumer<PaymentError>
     {
         private IDenormalizerRepository<PaymentVM> repository;
 
@@ -32,7 +33,9 @@ namespace PaymentGateway.ReadModel.Denormalizer.Handlers
                 OrderId = message.OrderId,
                 Amount = message.Amount,
                 CardNumber = message.CardNumber,
-                Currency = message.Currency
+                Currency = message.Currency,
+                MerchantId = message.MerchantId,
+                PaymentStatus = "Successful"
             };
             
             var paymentDoc = new DocumentBase<PaymentVM>(){ VM = paymentVm};
@@ -53,7 +56,30 @@ namespace PaymentGateway.ReadModel.Denormalizer.Handlers
                 OrderId = message.OrderId,
                 Amount = message.Amount,
                 CardNumber = message.CardNumber,
-                Currency = message.Currency
+                Currency = message.Currency,
+                MerchantId = message.MerchantId,
+                PaymentStatus = "Unsuccessful"
+            };
+            
+            var paymentDoc = new DocumentBase<PaymentVM>(){ VM = paymentVm};
+
+            await repository.Upsert(id, paymentDoc);
+        }
+        
+        public async Task Consume(ConsumeContext<PaymentError> context)
+        {
+            var message = context.Message;
+            var id = message.PaymentId.ToString();
+            
+            var paymentVm = new PaymentVM()
+            {
+                PaymentId = message.PaymentId,
+                OrderId = message.OrderId,
+                Amount = message.Amount,
+                CardNumber = message.CardNumber,
+                Currency = message.Currency,
+                MerchantId = message.MerchantId,
+                PaymentStatus = "System error"
             };
             
             var paymentDoc = new DocumentBase<PaymentVM>(){ VM = paymentVm};

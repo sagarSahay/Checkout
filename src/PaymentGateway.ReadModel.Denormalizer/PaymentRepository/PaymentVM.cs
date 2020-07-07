@@ -9,7 +9,11 @@ namespace PaymentGateway.ReadModel.Denormalizer.PaymentRepository
         public string Currency { get; set; }
         public string OrderId { get; set; }
         public Guid PaymentId { get; set; }
+        
+        public string MerchantId { get; set; }
         public string PaymentResponseId { get; set; }
         public string PaymentResponseStatus { get; set; }
+
+        public string PaymentStatus { get; set; }
     }
 }

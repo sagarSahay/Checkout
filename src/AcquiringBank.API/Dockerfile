@@ -1,5 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 WORKDIR /app
+EXPOSE 8080
 EXPOSE 6002
 ENV ASPNETCORE_URLS=http://*:6002
 

@@ -1,7 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 WORKDIR /app
 
-
 COPY . ./
 RUN echo $(ls -a)
 RUN dotnet publish PaymentGateway.ReadModel.Denormalizer/PaymentGateway.ReadModel.Denormalizer.csproj -c Release -o out
