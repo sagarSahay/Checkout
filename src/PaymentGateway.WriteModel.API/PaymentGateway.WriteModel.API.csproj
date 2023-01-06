@@ -17,7 +17,7 @@
       <PackageReference Include="Serilog.Sinks.File" Version="5.0.0-dev-00880" />
       <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.5.1" />
-      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.5.1" />
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
     </ItemGroup>
 
     <ItemGroup>
